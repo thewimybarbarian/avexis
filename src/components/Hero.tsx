@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
 import ParticleField from './ParticleField'
 import HeroVideo from './HeroVideo'
+import ShinyText from './ShinyText'
 
 export default function Hero({ animate = true }: { animate?: boolean }) {
   const show = animate
@@ -51,7 +52,7 @@ export default function Hero({ animate = true }: { animate?: boolean }) {
         >
           <span className="text-white">Intelligence</span>
           <br />
-          <span className="text-cyan text-glow">Engineered.</span>
+          <ShinyText text="Engineered." className="text-glow" />
         </motion.h1>
 
         {/* Subtitle */}
