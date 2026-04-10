@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Brain, Code, Layers, Sparkles, Cpu, BarChart3 } from 'lucide-react'
+import TiltCard from './TiltCard'
 
 const services = [
   {
@@ -67,7 +68,7 @@ export default function Services() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-dark-border rounded-2xl overflow-hidden border border-dark-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
@@ -76,15 +77,16 @@ export default function Services() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="group bg-dark-card p-8 sm:p-10 hover:bg-dark-border/30 transition-colors"
             >
-              <s.icon className="w-8 h-8 text-cyan mb-6 group-hover:text-cyan-light transition-colors" />
-              <h3 className="font-display text-lg font-semibold text-white mb-3 tracking-wide">
-                {s.title}
-              </h3>
-              <p className="text-gray-light text-sm leading-relaxed">
-                {s.desc}
-              </p>
+              <TiltCard className="group bg-dark-card border border-dark-border rounded-2xl p-8 sm:p-10 hover:border-cyan/20 transition-colors h-full cursor-default">
+                <s.icon className="w-8 h-8 text-cyan mb-6 group-hover:text-cyan-light transition-colors" />
+                <h3 className="font-display text-lg font-semibold text-white mb-3 tracking-wide">
+                  {s.title}
+                </h3>
+                <p className="text-gray-light text-sm leading-relaxed">
+                  {s.desc}
+                </p>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

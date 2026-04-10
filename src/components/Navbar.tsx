@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
+        <a href="#" className="flex items-center gap-3 group" data-magnetic>
           <div className="w-8 h-8 border border-cyan rounded flex items-center justify-center">
             <div className="w-3 h-3 bg-cyan rounded-sm" />
           </div>
@@ -33,6 +33,7 @@ export default function Navbar() {
           ))}
           <a
             href="#contact"
+            data-magnetic
             className="ml-1 px-5 py-1.5 text-sm font-medium bg-cyan text-dark rounded-full hover:bg-cyan-light transition-colors"
           >
             Get Started
