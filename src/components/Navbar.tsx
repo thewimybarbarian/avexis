@@ -12,14 +12,16 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group" data-magnetic>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-10 h-10 object-contain rounded"
-            src="https://pub-30dc4f9c80c642e487b510dcdbc90114.r2.dev/0411.mp4"
-          />
+          <div className="w-10 h-10 rounded-lg bg-black overflow-hidden flex items-center justify-center">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              src="https://pub-30dc4f9c80c642e487b510dcdbc90114.r2.dev/0411.mp4"
+            />
+          </div>
           <span className="font-display text-sm font-bold tracking-[0.3em] text-white uppercase">
             Avexis
           </span>
