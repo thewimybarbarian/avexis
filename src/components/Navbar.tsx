@@ -8,8 +8,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black">
+      <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group" data-magnetic>
           <div className="w-10 h-10 rounded-lg bg-black overflow-hidden flex items-center justify-center">
