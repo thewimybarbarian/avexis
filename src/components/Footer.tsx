@@ -52,10 +52,8 @@ export default function Footer() {
       {/* Footer content */}
       <div className="relative z-10 py-12 px-6">
         <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-6 h-6 border border-cyan rounded flex items-center justify-center">
-              <div className="w-2 h-2 bg-cyan rounded-sm" />
-            </div>
+          <div className="flex items-center gap-2">
+            <img src="/Avexis-icon.png" alt="AVEXIS" className="w-7 h-7 object-contain" />
             <span className="font-display text-xs font-bold tracking-[0.3em] text-white/60 uppercase">
               Avexis
             </span>
