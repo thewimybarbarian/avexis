@@ -12,7 +12,14 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 py-5 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group" data-magnetic>
-          <img src="/Avexis-icon.png" alt="AVEXIS" className="w-9 h-9 object-contain" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-10 h-10 object-contain rounded"
+            src="https://pub-30dc4f9c80c642e487b510dcdbc90114.r2.dev/0411.mp4"
+          />
           <span className="font-display text-sm font-bold tracking-[0.3em] text-white uppercase">
             Avexis
           </span>
