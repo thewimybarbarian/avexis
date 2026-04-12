@@ -12,14 +12,14 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-xs tracking-[0.3em] uppercase text-cyan font-medium">
-            Let's Build
+            // Start a Build
           </span>
           <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-            Ready to integrate AI into your business?
+            Tell us what you're building.
           </h2>
           <p className="mt-6 text-gray-light text-base sm:text-lg leading-relaxed">
-            Tell us about your project. We'll get back to you within 24 hours
-            with a tailored proposal.
+            Drop your details and we'll scope it out. No sales calls, no
+            decks&nbsp;— just a straight answer on timeline, cost, and fit.
           </p>
         </motion.div>
 

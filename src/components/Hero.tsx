@@ -67,9 +67,9 @@ export default function Hero({ animate = true }: { animate?: boolean }) {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="mt-8 max-w-2xl mx-auto text-base sm:text-lg text-gray-light leading-relaxed"
         >
-          We design and develop AI-integrated solutions that transform how
-          businesses operate. From intelligent automation to custom AI
-          platforms&nbsp;— we build what's next.
+          We build websites, automate workflows, and deploy AI agents that
+          run your operation. One team. No hand-offs.&nbsp;Shipped in days,
+          not months.
         </motion.p>
 
         {/* CTA buttons */}

@@ -1,11 +1,40 @@
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 
 const stats = [
-  { value: '50+', label: 'AI Projects Shipped' },
-  { value: '99%', label: 'Client Retention' },
-  { value: '3x', label: 'Avg. Efficiency Gain' },
-  { value: '24/7', label: 'Monitoring & Support' },
+  { value: 48, suffix: 'hr', label: 'Avg. Launch Time' },
+  { value: 99, suffix: '%', label: 'Client Retention' },
+  { value: 12, suffix: '+', label: 'AI Integrations' },
+  { value: 24, suffix: '/7', label: 'Agent Uptime' },
 ]
+
+function CountUp({ target, suffix }: { target: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true })
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!inView) return
+    let frame = 0
+    const totalFrames = 40
+    const step = () => {
+      frame++
+      const progress = frame / totalFrames
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.round(eased * target))
+      if (frame < totalFrames) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  }, [inView, target])
+
+  return (
+    <span ref={ref}>
+      {count}
+      <span className="text-cyan">{suffix}</span>
+    </span>
+  )
+}
 
 export default function About() {
   return (
@@ -20,25 +49,24 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <span className="text-xs tracking-[0.3em] uppercase text-cyan font-medium">
-              About AVEXIS
+              // About AVEXIS
             </span>
             <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-              We turn AI ambition into shipped products.
+              One team. Full stack. Zero gaps.
             </h2>
             <p className="mt-6 text-gray-light text-base sm:text-lg leading-relaxed">
-              AVEXIS is a design and development studio that specializes in
-              AI-integrated solutions. We work with startups and enterprises to
-              bring intelligent products to market — fast, scalable, and built
-              to last.
+              AVEXIS is a build studio for the AI era. We handle websites,
+              automation, brand, and agent systems — all under one roof. No
+              freelancers, no vendor chains, no hand-offs.
             </p>
             <p className="mt-4 text-gray-light text-base sm:text-lg leading-relaxed">
-              Our team combines deep AI/ML expertise with world-class product
-              design. The result? Technology that doesn't just work — it works
-              beautifully.
+              You bring the business. We bring the machine room. Every
+              deliverable is built to operate — not just to look good in a
+              pitch deck.
             </p>
           </motion.div>
 
-          {/* Right — stats grid */}
+          {/* Right — animated stats grid */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -51,8 +79,8 @@ export default function About() {
                 key={s.label}
                 className="bg-dark-card p-8 sm:p-10 text-center"
               >
-                <div className="font-display text-3xl sm:text-4xl font-bold text-cyan text-glow">
-                  {s.value}
+                <div className="font-display text-3xl sm:text-4xl font-bold text-white text-glow">
+                  <CountUp target={s.value} suffix={s.suffix} />
                 </div>
                 <div className="mt-2 text-sm text-gray-light">{s.label}</div>
               </div>

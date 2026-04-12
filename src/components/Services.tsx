@@ -1,46 +1,66 @@
 import { motion } from 'framer-motion'
-import { Brain, Code, Layers, Sparkles, Cpu, BarChart3 } from 'lucide-react'
+import { Globe, Zap, Palette, Bot, Wrench } from 'lucide-react'
 import TiltCard from './TiltCard'
 
 const services = [
   {
-    icon: Brain,
-    title: 'AI Strategy & Consulting',
-    desc: 'We assess your business and identify where AI creates the most impact — then build the roadmap to get there.',
+    num: '01',
+    price: '$2,500',
+    icon: Globe,
+    title: '48-Hour Websites',
+    desc: 'Custom website build, mobile-first layout, messaging & copy, lead capture, live deployment, and full source code ownership. Launched in 48 hours.',
+    stat: '48',
+    statUnit: 'hr',
+    statLabel: 'Delivery',
   },
   {
-    icon: Code,
-    title: 'Custom AI Development',
-    desc: 'From LLM-powered platforms to computer vision systems — we build production-grade AI solutions from scratch.',
+    num: '02',
+    price: 'Scoped',
+    icon: Zap,
+    title: 'AI Automations',
+    desc: 'Workflow automation, agent systems, and intake routing. Real operator logic wired behind every build.',
+    stat: '12',
+    statUnit: '+',
+    statLabel: 'Integrations',
   },
   {
-    icon: Layers,
-    title: 'AI-Integrated Web & Apps',
-    desc: 'Full-stack web and mobile applications with intelligent features baked in — not bolted on.',
+    num: '03',
+    price: 'Scoped',
+    icon: Palette,
+    title: 'Brand + Media',
+    desc: 'Brand alignment, creative direction, and production support. We make you look as sharp as your operation runs.',
+    stat: '4K',
+    statUnit: '',
+    statLabel: 'Deliverables',
   },
   {
-    icon: Sparkles,
-    title: 'Design & UX for AI',
-    desc: 'Interfaces that make complex AI feel simple. We design experiences people actually want to use.',
+    num: '04',
+    price: 'Scoped',
+    icon: Bot,
+    title: 'Agent Systems',
+    desc: 'Team operating layer and internal automation. Deploy self-directing AI agents that adapt to your workflows.',
+    stat: '24',
+    statUnit: '/7',
+    statLabel: 'Autonomous',
   },
   {
-    icon: Cpu,
-    title: 'Automation & Workflows',
-    desc: 'Intelligent process automation that eliminates repetitive work and scales with your business.',
-  },
-  {
-    icon: BarChart3,
-    title: 'Data & Analytics',
-    desc: 'Turn raw data into actionable insights with custom dashboards, pipelines, and predictive models.',
+    num: '05',
+    price: 'Retainer',
+    icon: Wrench,
+    title: 'Ongoing Support',
+    desc: 'Monthly updates, priority fixes, and iteration support. We stay in the loop so your site never falls behind.',
+    stat: '99',
+    statUnit: '%',
+    statLabel: 'Uptime',
   },
 ]
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5 },
+    transition: { delay: i * 0.12, duration: 0.6, ease: 'easeOut' },
   }),
 }
 
@@ -53,22 +73,30 @@ export default function Services() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-20 max-w-2xl"
+          className="mb-6 max-w-3xl"
         >
           <span className="text-xs tracking-[0.3em] uppercase text-cyan font-medium">
-            What We Build
+            // The Machine Room
           </span>
           <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
-            End-to-end AI solutions
+            One team handles launch and operator layer.
           </h2>
           <p className="mt-4 text-gray-light text-base sm:text-lg leading-relaxed">
-            We don't just consult — we design, build, and ship. Every solution
-            is engineered for real-world performance.
+            No hand-offs, no vendor chains.
           </p>
         </motion.div>
 
-        {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Divider line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="h-px bg-gradient-to-r from-cyan/40 via-cyan/20 to-transparent mb-16 origin-left"
+        />
+
+        {/* Service cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, i) => (
             <motion.div
               key={s.title}
@@ -77,15 +105,42 @@ export default function Services() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              className={i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}
             >
-              <TiltCard className="group bg-dark-card border border-dark-border rounded-2xl p-8 sm:p-10 hover:border-cyan/20 transition-colors h-full cursor-default">
-                <s.icon className="w-8 h-8 text-cyan mb-6 group-hover:text-cyan-light transition-colors" />
-                <h3 className="font-display text-lg font-semibold text-white mb-3 tracking-wide">
+              <TiltCard className="group relative bg-dark-card border border-dark-border rounded-2xl p-8 sm:p-10 hover:border-cyan/30 transition-all h-full cursor-default overflow-hidden">
+                {/* Number + price header */}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="font-display text-xs tracking-[0.2em] text-gray-dim">
+                    {s.num}
+                  </span>
+                  <span className="text-xs font-medium tracking-wider uppercase text-cyan bg-cyan/10 px-3 py-1 rounded-full">
+                    {s.price}
+                  </span>
+                </div>
+
+                {/* Icon + Title */}
+                <s.icon className="w-7 h-7 text-cyan mb-4 group-hover:text-cyan-light transition-colors" />
+                <h3 className="font-display text-xl font-bold text-white mb-3 tracking-wide">
                   {s.title}
                 </h3>
-                <p className="text-gray-light text-sm leading-relaxed">
+
+                {/* Description */}
+                <p className="text-gray-light text-sm leading-relaxed mb-8">
                   {s.desc}
                 </p>
+
+                {/* Stat callout */}
+                <div className="mt-auto pt-6 border-t border-dark-border flex items-baseline gap-1">
+                  <span className="font-display text-3xl font-bold text-white">
+                    {s.stat}
+                  </span>
+                  <span className="font-display text-lg font-bold text-cyan">
+                    {s.statUnit}
+                  </span>
+                  <span className="ml-2 text-xs tracking-[0.15em] uppercase text-gray-dim">
+                    {s.statLabel}
+                  </span>
+                </div>
               </TiltCard>
             </motion.div>
           ))}
