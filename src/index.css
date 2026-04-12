@@ -54,3 +54,43 @@ body {
 .text-glow {
   text-shadow: 0 0 40px rgba(0, 212, 255, 0.5), 0 0 80px rgba(0, 212, 255, 0.2);
 }
+
+/* Custom range slider — cyan theme */
+.slider-cyan {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #1A1A2E;
+  outline: none;
+  cursor: pointer;
+}
+.slider-cyan::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #00D4FF;
+  border: 3px solid #0A0A0F;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+  cursor: grab;
+  transition: box-shadow 0.2s;
+}
+.slider-cyan::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
+}
+.slider-cyan::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #00D4FF;
+  border: 3px solid #0A0A0F;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+  cursor: grab;
+}
+.slider-cyan::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: #1A1A2E;
+}

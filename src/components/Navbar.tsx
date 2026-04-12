@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
-const links = ['Services', 'About', 'Work', 'Contact']
+const links = ['Services', 'About', 'Estimate', 'Contact']
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)

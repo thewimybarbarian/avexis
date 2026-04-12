@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
 import About from './components/About'
+import Estimator from './components/Estimator'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import MagneticCursor from './components/MagneticCursor'
@@ -30,6 +31,7 @@ export default function App() {
           <Hero animate={siteReady} />
           <Services />
           <About />
+          <Estimator />
           <Contact />
           <Footer />
         </div>
